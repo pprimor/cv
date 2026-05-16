@@ -38,7 +38,8 @@ jobs:
             collection-fontsrecommended
 
       - name: Build PDF
-        run: make cv
+        # checkout resets mtimes; touch source so make always runs latexmk
+        run: touch cv_en.tex && make cv
 
       - name: Verify committed PDF matches build
         if: github.event_name == 'pull_request'
