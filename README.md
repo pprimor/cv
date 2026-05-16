@@ -28,12 +28,12 @@ eval "$(/usr/libexec/path_helper)"   # or open a new terminal
 # sudo does not inherit /Library/TeX/texbin — use the full path or env PATH=...
 sudo /Library/TeX/texbin/tlmgr update --self
 sudo /Library/TeX/texbin/tlmgr install latexmk \
-  preprint tools hyperref babel-english xcolor \
+  preprint tools hyperref glyphtounicode babel-english xcolor \
   enumitem titlesec fancyhdr marvosym ragged2e footmisc \
   fontawesome collection-fontsrecommended
 ```
 
-`tabularx` and `multicol` live in the `tools` package (there is no separate `tlmgr install tabularx`). `fullpage.sty` comes from `preprint`. If the first build still fails, install the name from the log, e.g. `sudo /Library/TeX/texbin/tlmgr install preprint`.
+`tabularx` lives in the `tools` package (there is no separate `tlmgr install tabularx`). `fullpage.sty` comes from `preprint`. If the first build still fails, install the name from the log, e.g. `sudo /Library/TeX/texbin/tlmgr install preprint`.
 
 ## Build from source
 
@@ -48,7 +48,7 @@ open CV.pdf      # macOS
 
 | Path | What you do | What CI does |
 |------|-------------|--------------|
-| **Pull request** | Edit `cv_en.tex`, run `make cv`, commit **both** files | Fails if `CV.pdf` ≠ build output |
+| **Pull request** | Edit `cv_en.tex`, run `make cv`, commit **both** files | Fails if `CV.pdf` ≠ build output or PDF is not exactly **1 page** |
 | **Push to `main`** | May commit `cv_en.tex` only | Rebuilds and commits `CV.pdf` if needed |
 
 1. Edit `cv_en.tex`.
@@ -100,6 +100,7 @@ If you add branch protection on `main`, allow `github-actions[bot]` to push (or 
 ## Troubleshooting
 
 - **PR failed on PDF drift** — CI rebuilt `CV.pdf` and it did not match your branch. Run `make cv` locally, commit the updated `CV.pdf`, and push.
+- **PR failed on page count** — `CV.pdf` must be exactly one page. Trim content or spacing in `cv_en.tex`, run `make cv`, and verify with `pdfinfo CV.pdf | awk '/^Pages:/'`.
 - **PDF does not update on the site** — Wait for the Pages build, then hard-refresh or try a private window.
 - **Iframe blank in some browsers** — Open [CV.pdf](https://pprimor.github.io/cv/CV.pdf) directly; the embed uses a same-origin relative path, not Google Docs viewer.
 - **Wrong repo in links** — Remote and Pages URL use `pprimor/cv`; keep GitHub URLs in docs aligned with that.
