@@ -1,0 +1,53 @@
+name: Build CV
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: build-cv-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: TeX-Live/setup-texlive-action@v3
+        with:
+          packages: >-
+            latexmk
+            preprint
+            tools
+            hyperref
+            babel-english
+            xcolor
+            enumitem
+            titlesec
+            fancyhdr
+            marvosym
+            ragged2e
+            footmisc
+            fontawesome
+            collection-fontsrecommended
+
+      - name: Build PDF
+        run: make cv
+
+      - name: Verify committed PDF matches build
+        if: github.event_name == 'pull_request'
+        run: git diff --exit-code CV.pdf
+
+      - name: Commit updated PDF
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "ci: rebuild CV.pdf from cv_en.tex"
+          file_pattern: CV.pdf
+          skip_ci: true
