@@ -33,6 +33,7 @@ jobs:
             hyperref
             pdftex
             babel-english
+            babel-portuguese
             xcolor
             enumitem
             titlesec
@@ -43,20 +44,22 @@ jobs:
             fontawesome
             collection-fontsrecommended
 
-      - name: Build PDF
-        # checkout resets mtimes; touch source so make always runs latexmk
-        run: touch cv_en.tex && make cv
+      - name: Build PDFs
+        # checkout resets mtimes; touch sources so make always runs latexmk
+        run: touch cv_en.tex cv_pt.tex && make cv
 
-      - name: Verify single-page PDF
-        run: test "$(pdfinfo CV.pdf | awk '/^Pages:/ {print $2}')" -eq 1
+      - name: Verify single-page PDFs
+        run: |
+          test "$(pdfinfo CV.pdf | awk '/^Pages:/ {print $2}')" -eq 1
+          test "$(pdfinfo CV_pt.pdf | awk '/^Pages:/ {print $2}')" -eq 1
 
-      - name: Verify committed PDF matches build
+      - name: Verify committed PDFs match build
         if: github.event_name == 'pull_request'
-        run: git diff --exit-code CV.pdf
+        run: git diff --exit-code CV.pdf CV_pt.pdf
 
-      - name: Commit updated PDF
+      - name: Commit updated PDFs
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "ci: rebuild CV.pdf from cv_en.tex [skip ci]"
-          file_pattern: CV.pdf
+          commit_message: "ci: rebuild CV.pdf and CV_pt.pdf [skip ci]"
+          file_pattern: CV.pdf CV_pt.pdf
