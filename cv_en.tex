@@ -1,0 +1,284 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+\usepackage[document]{ragged2e}
+\usepackage{fontawesome}
+\usepackage{multicol}
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\begin{center}
+    \textbf{\huge \scshape Pedro Primor} \\ \vspace{1pt}
+    \ \href{mailto:hello@primor.me}{\faEnvelope \hspace{1pt} hello@primor.me}
+    % $|$ \faLink \ \href{https://primor.me/}{\underline{primor.me}}
+    $|$ \href{https://www.linkedin.com/in/primor/}{\faLinkedin/primor}
+    $|$ \href{https://github.com/pprimor}{\faGithub/pprimor}
+\end{center}
+
+\section{About me}
+    \justifying
+
+Software Engineer at \href{https://pageproof.com/}{PageProof}, specializing in cross-platform integrations that connect creative tools such as Canva, Microsoft Office, Adobe Creative Suite, and Final Cut Pro with PageProof's review workflow. I design and develop user-focused solutions using \textbf{React, TypeScript, Swift, and Electron} across web, desktop, and mobile platforms.
+
+I build robust integrations and workflow extensions that enhance productivity by bridging complex technical requirements with intuitive design. My solutions are scalable, maintainable, and deliver measurable improvements in efficiency, usability, and product value.
+
+%-----------EXPERIENCE-----------
+\section{Work experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Software Engineer}{Mar. 2023 -- Present}
+      {PageProof.com Limited}{Remote}
+        \resumeItemListStart
+            % \resumeItem{Extended cross-platform desktop application functionalities using Electron and Node.js; developed a macOS Share Extension in Swift;}
+            % \resumeItem{Developed an OAuth 2.0 (\href{https://www.rfc-editor.org/rfc/rfc6749.html}{RFC 6749)} Authorization Server with support for OpenID Connect \href{https://openid.net/connect/}{(OIDC)} to be used across the company's integrations;}
+            % \resumeItem{Developed the Canva App for PageProof using React, TypeScript, and the Canva Apps SDK;}
+            % \resumeItem{Implemented the Microsoft Office taskpane add-in using React, TypeScript, and Office.js;}
+            % \resumeItem{Led the development of the Final Cut Pro workflow extension for PageProof using Swift and SwiftUI;}
+            % \resumeItem{Built and maintained PageProof's cross-platform UXP plug-in integrations for Adobe Photoshop and InDesign, streamlining designers’ workflows and ensuring seamless integration with PageProof;}
+            % \resumeItem{Worked on enhancing the PageProof web app, focusing on improving the mobile user experience.}
+            \resumeItem{Developing a \textbf{QuarkXPress XTension} using React, TypeScript, and C++ for native QuarkXPress API integration, extending PageProof's review capabilities to QuarkXPress users.}
+            \resumeItem{Enhanced cross-platform desktop application functionalities using \textbf{Electron} and \textbf{Node.js}, improving integration scalability and feature parity across operating systems.}
+            \resumeItem{Developed a company-wide \textbf{OAuth 2.0} (\href{https://www.rfc-editor.org/rfc/rfc6749.html}{RFC 6749}) Authorization Server with \textbf{OpenID Connect (OIDC)} (\href{https://openid.net/connect/}{OpenID Connect}) support using \textbf{Node.js}, standardizing authentication across PageProof integrations.}
+            \resumeItem{Built the \textbf{Canva App for PageProof} using React, TypeScript, and the Canva Apps SDK, enabling seamless review workflows within Canva.}
+            \resumeItem{Implemented the \textbf{Microsoft Office taskpane add-in} with React, TypeScript, and Office.js to integrate PageProof’s functionality directly into the Office ecosystem.}
+            \resumeItem{Led the development of the \textbf{Final Cut Pro workflow extension} using Swift and SwiftUI, improving review efficiency for video editing teams.}
+            \resumeItem{Built and maintained PageProof’s cross-platform \textbf{UXP plug-in integrations} for Adobe Photoshop and InDesign, streamlining creative workflows and ensuring seamless integration with PageProof.}
+            \resumeItem{Contributed to enhancing the \textbf{PageProof web app}, with a focus on optimizing the mobile user experience and UI responsiveness.}
+
+        \resumeItemListEnd
+        
+
+    \resumeSubheading
+      {Operations Research Analyst}{Jan. 2022 -- Sep. 2022}
+      {CTT – Correios de Portugal, S.A.}{Lisbon, Portugal}
+        \resumeItemListStart
+            \resumeItem{Led an operations research and data analytics project focused on optimizing the \textbf{last-mile delivery process} within the postal distribution network.}
+            \resumeItem{Modeled and solved a \textbf{vehicle routing problem (VRP)} tailored to postal delivery constraints, improving route efficiency and resource allocation.}
+            \resumeItem{Developed \textbf{data visualizations and insights} in Tableau to support decision-making and operational planning.}
+
+            \resumeItemListEnd
+  
+    \resumeSubheading
+      {Front-end Developer Intern}{Apr. 2020 -- Jul. 2020}
+      {Altitude Software}{Lisbon, Portugal}
+        \resumeItemListStart
+            \resumeItem{Rebuilt legacy ASP.NET components using \textbf{React}, modernizing the user interface of a contact center management platform and improving maintainability.}
+            % \resumeItem{Integrated the components with the application's back-end using C\# and ASP.NET.}
+        \resumeItemListEnd
+        
+    % \resumeSubheading
+      % {Front-end Developer and QA Assistant}{Jul. 2019 -- Aug. 2019}
+      % {Automatication}{Lisbon, Portugal}
+      % \resumeItemListStart
+      %   \resumeItem{Developed React components to display the result of unit tests on a web page;}
+      %   \resumeItem{Experimented with AWS Amplify's authentication mechanism;}
+      %   \resumeItem{Learned to develop unit tests for JavaScript environments using Jest.}
+      % \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {NOVA University Lisbon}{Sep. 2020 -- Dec. 2022}
+    {Master of Science in Computer Science}{Lisbon, Portugal}
+      \resumeSubSubheading{\large \textsc{Relevant Coursework:}}{}
+      \resumeItemListStart
+        % \resumeItem{\textbf{Artificial Intelligence} — studied fundamental AI concepts and techniques for intelligent systems.}
+        % \resumeItem{\textbf{Data Modelling} — compared relational and graph database models using the U.S. domestic flights dataset in a research project.}
+        % \resumeItem{\textbf{Information Retrieval} — implemented a search-based conversation framework leveraging \textbf{word2vec}, \textbf{BERT}, and \textbf{T5} for query rewriting.}
+        % \resumeItem{\textbf{Machine Learning} — compared \textbf{Naive Bayes} and \textbf{SVM} classifiers for anomaly detection and applied feature extraction, selection, and clustering for bacterial cell classification.}
+        \resumeItem{\textbf{Artificial Intelligence}, \textbf{Concurrency and Parallelism}, \textbf{Data Modelling}, \textbf{Information Retrieval}, \textbf{Machine Learning}}
+        \resumeItemListEnd
+
+  \resumeSubheading
+    {Technische Universität Dresden}{Apr. 2021 -- Oct. 2021}
+    {Erasmus+ Programme Mobility in Computer Science}{Dresden, Germany}
+
+  \resumeSubheading
+    {NOVA University Lisbon}{Sep. 2017 -- Sep. 2020}
+    {Bachelor of Science in Computer Science}{Lisbon, Portugal}
+      \resumeSubSubheading{\large \textsc{Relevant Coursework:}}{}
+      \resumeItemListStart
+        % \resumeItem{\textbf{Algorithms and Data Structures} — explored algorithmic efficiency and data representation for computational problem-solving.}
+        % \resumeItem{\textbf{Object-Oriented Programming} — applied OOP principles to build modular, maintainable software systems.}
+        % \resumeItem{\textbf{Sensors and Image Processing} — developed a traffic sign recognition framework for classifying and extracting data from Portuguese road sign imagery.}
+        \resumeItem{\textbf{Algorithms and Data Structures}, \textbf{Object-Oriented Programming}, \textbf{Databases}, \textbf{Sensors and Image Processing}}
+        \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Personal Projects}
+    \resumeSubHeadingListStart
+      % \resumeProjectHeading
+      %       {\textbf{Optimization Problems in the Postal Sector} $|$ \emph{Python, CPLEX, Tableau}}{Dec. 2021 -- Dec. 2022}
+      %       \resumeItemListStart
+      %           \resumeItem{Operations research and data analytics project;}
+      %           \resumeItem{Had the main goal of optimizing the last-mile delivery step of the postal distribution process;}
+      %           \resumeItem{Explored how to model and solve a vehicle routing problem adapted to the postal sector, in general, and the company, in particular;}
+      %           \resumeItem{Provided meaningful insight and visualizations regarding routing solutions with Tableau.}
+      %       \resumeItemListEnd
+      \resumeProjectHeading
+        {\textbf{My Spelling Game} $|$ \emph{Unity, C\#, SQLite}}{Jul. 2018 -- Nov. 2018}
+        \resumeItemListStart
+          \resumeItem{Co-developed and published a 2D mobile game for Android and iOS using Unity and C\#, in collaboration with a graphic designer; achieved over \textbf{1.5K installs} within the first year.}
+        \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%
+%-----------VOLUNTEERING-----------
+% \section{Volunteering}
+%     \resumeSubHeadingListStart
+%         \resumeSubheading
+%         {\small{Kekri celebrations in North Karelia}}{Oct. 2022}
+%         {Hyvärilä – Youth and Holiday Centre} {Nurmes, Finland}
+%         \resumeItemListStart
+%             \resumeItem{Met with local community members and organized various activities;}
+%         \resumeItemListEnd
+%     \resumeSubHeadingListEnd
+
+%
+%-----------EVENTS-----------
+% \section{Events}
+%     \resumeSubHeadingListStart
+%         \resumeProjectHeading
+%             {\textbf{EUROPT Summer School 2022} $|$ \emph{Mathematical optimization, Game theory}}{Aug. 2022}  
+%         \resumeProjectHeading
+%             {\textbf{Android Training Program} $|$ \emph{Android Studio, Java, Kotlin}}{Nov. 2019}
+%         \resumeProjectHeading
+%             {\textbf{Unity Workshop - JORTEC Informática 2019} $|$ \emph{Unity, C\#}}{Feb. 2019}
+% \resumeSubHeadingListEnd
+
+%
+%-----------LANGUAGES-----------
+\section{Languages}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Portuguese}: Native proficiency \\
+     \textbf{English}: Full professional proficiency \\
+    }}
+ \end{itemize}
+
+%
+%-----------PROGRAMMING SKILLS-----------
+% \section{Technical Skills}
+%  \begin{itemize}[leftmargin=0.15in, label={}]
+%     \small{\item{
+%     \textbf{General-purpose languages}{: Java, C\#, Python, Swift, Kotlin} \\
+%     \textbf{Web development}{: HTML, CSS, JavaScript, TypeScript, React, webpack, Node.js, Zustand, TanStack Query} \\
+%     \textbf{Mobile \& game development}{: Flutter, Unity, Firebase, OneSignal} \\
+%     \textbf{Developer tools}{: Git, Docker, npm} \\
+%     % \textbf{Data science libraries}{: NumPy, pandas, Matplotlib, scikit-learn, TensorFlow, PyTorch, OpenCV} \\
+%     \textbf{Database management systems}{: MySQL, MongoDB, Neo4j} \\
+%     % \textbf{Test-automation frameworks}{: Jest, Cypress} \\
+%     \textbf{Software packages}{: Tableau, CPLEX} 
+%     }} \\
+%  \end{itemize}
+
+
+%-------------------------------------------
+\end{document}
