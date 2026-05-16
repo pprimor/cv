@@ -31,7 +31,7 @@ jobs:
             preprint
             tools
             hyperref
-            glyphtounicode
+            pdftex
             babel-english
             xcolor
             enumitem
