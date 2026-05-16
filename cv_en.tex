@@ -6,35 +6,20 @@
 %------------------------
 
 \documentclass[letterpaper,11pt]{article}
-\usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
-\usepackage{marvosym}
 \usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
 \usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \input{glyphtounicode}
 \usepackage[document]{ragged2e}
 \usepackage{fontawesome}
-\usepackage{multicol}
-
-%----------FONT OPTIONS----------
-% sans-serif
-% \usepackage[sfdefault]{FiraSans}
-% \usepackage[sfdefault]{roboto}
-% \usepackage[sfdefault]{noto-sans}
-% \usepackage[default]{sourcesanspro}
-
-% serif
-% \usepackage{CormorantGaramond}
-% \usepackage{charter}
-
+\usepackage[hidelinks]{hyperref}
 
 \pagestyle{fancy}
+\setlength{\footskip}{4.5pt}
 \fancyhf{} % clear all header and footer fields
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
@@ -107,7 +92,7 @@
 \begin{document}
 
 \begin{center}
-    \textbf{\huge \scshape Pedro Primor} \\ \vspace{1pt}
+    {\huge\textsc{Pedro Primor}} \\ \vspace{1pt}
     \ \href{mailto:hello@primor.me}{\faEnvelope \hspace{1pt} hello@primor.me}
     % $|$ \faLink \ \href{https://primor.me/}{\underline{primor.me}}
     $|$ \href{https://www.linkedin.com/in/primor/}{\faLinkedin/primor}
@@ -150,17 +135,7 @@ Software Engineer at \href{https://pageproof.com/}{PageProof}, building cross-pl
       {Altitude Software}{Lisbon, Portugal}
         \resumeItemListStart
             \resumeItem{Rebuilt legacy ASP.NET components using \textbf{React}, modernizing the user interface of a contact center management platform and improving maintainability.}
-            % \resumeItem{Integrated the components with the application's back-end using C\# and ASP.NET.}
         \resumeItemListEnd
-        
-    % \resumeSubheading
-      % {Front-end Developer and QA Assistant}{Jul. 2019 -- Aug. 2019}
-      % {Automatication}{Lisbon, Portugal}
-      % \resumeItemListStart
-      %   \resumeItem{Developed React components to display the result of unit tests on a web page;}
-      %   \resumeItem{Experimented with AWS Amplify's authentication mechanism;}
-      %   \resumeItem{Learned to develop unit tests for JavaScript environments using Jest.}
-      % \resumeItemListEnd
 
   \resumeSubHeadingListEnd
 
@@ -188,23 +163,4 @@ Software Engineer at \href{https://pageproof.com/}{PageProof}, building cross-pl
 
 \resumeSubHeadingListEnd
 
-
-%
-%-----------PROGRAMMING SKILLS-----------
-% \section{Technical Skills}
-%  \begin{itemize}[leftmargin=0.15in, label={}]
-%     \small{\item{
-%     \textbf{General-purpose languages}{: Java, C\#, Python, Swift, Kotlin} \\
-%     \textbf{Web development}{: HTML, CSS, JavaScript, TypeScript, React, webpack, Node.js, Zustand, TanStack Query} \\
-%     \textbf{Mobile \& game development}{: Flutter, Unity, Firebase, OneSignal} \\
-%     \textbf{Developer tools}{: Git, Docker, npm} \\
-%     % \textbf{Data science libraries}{: NumPy, pandas, Matplotlib, scikit-learn, TensorFlow, PyTorch, OpenCV} \\
-%     \textbf{Database management systems}{: MySQL, MongoDB, Neo4j} \\
-%     % \textbf{Test-automation frameworks}{: Jest, Cypress} \\
-%     \textbf{Software packages}{: Tableau, CPLEX} 
-%     }} \\
-%  \end{itemize}
-
-
-%-------------------------------------------
 \end{document}
