@@ -33,7 +33,7 @@ jobs:
             hyperref
             pdftex
             babel-english
-            babel-portuguese
+            babel-portuges
             xcolor
             enumitem
             titlesec

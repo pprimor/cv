@@ -30,7 +30,7 @@ eval "$(/usr/libexec/path_helper)"   # or open a new terminal
 # sudo does not inherit /Library/TeX/texbin — use the full path or env PATH=...
 sudo /Library/TeX/texbin/tlmgr update --self
 sudo /Library/TeX/texbin/tlmgr install latexmk \
-  preprint tools hyperref pdftex babel-english babel-portuguese xcolor \
+  preprint tools hyperref pdftex babel-english babel-portuges xcolor \
   enumitem titlesec fancyhdr marvosym ragged2e footmisc \
   fontawesome collection-fontsrecommended
 ```
