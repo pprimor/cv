@@ -1,0 +1,179 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[portuguese]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+\usepackage[document]{ragged2e}
+\usepackage{fontawesome}
+\usepackage[hidelinks]{hyperref}
+
+\pagestyle{fancy}
+\setlength{\footskip}{4.5pt}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\begin{center}
+    {\huge\textsc{Pedro Primor}} \\ \vspace{1pt}
+    \ \href{mailto:hello@primor.me}{\faEnvelope \hspace{1pt} hello@primor.me}
+    % $|$ \faLink \ \href{https://primor.me/}{\underline{primor.me}}
+    $|$ \href{https://www.linkedin.com/in/primor/}{\faLinkedin/primor}
+    $|$ \href{https://github.com/pprimor}{\faGithub/pprimor}
+\end{center}
+
+\section{Sobre mim}
+    \justifying
+
+Engenheiro de Software na \href{https://pageproof.com/}{PageProof}, onde desenvolvo integrações multiplataforma que ligam ferramentas criativas---Canva, Microsoft Office, Adobe Creative Suite e Final Cut Pro---ao fluxo de revisão da PageProof. Concebo e entrego soluções orientadas ao utilizador com \textbf{React, TypeScript, Swift e Electron} na web, no ambiente de trabalho e em dispositivos móveis. \textbf{Idiomas:} português (nativo); inglês (nível profissional).
+
+%-----------EXPERIENCE-----------
+\section{Experiência profissional}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Engenheiro de Software}{mar. 2023 -- atual}
+      {PageProof.com Limited}{Remoto}
+        \resumeItemListStart
+            \resumeItem{Desenvolvi a integração com \textbf{Jira} (referências a provas de revisão, comentários sincronizados nas \emph{issues} e anexo de ficheiros aprovados) com React, TypeScript e Node.js.}
+            \resumeItem{Implementei uma \textbf{XTension QuarkXPress} com React, TypeScript e C++ para integração nativa com a API QuarkXPress, alargando as capacidades de revisão da PageProof a utilizadores QuarkXPress.}
+            \resumeItem{Desenvolvi um servidor de autorização \textbf{OAuth 2.0} (\href{https://www.rfc-editor.org/rfc/rfc6749.html}{RFC 6749}) à escala da empresa, com suporte a \textbf{OpenID Connect (OIDC)} (\href{https://openid.net/connect/}{OpenID Connect}) em \textbf{Node.js}, e reforçei as aplicações multiplataforma para ambiente de trabalho com \textbf{Electron}.}
+            \resumeItem{Desenvolvi \href{https://pageproof.com/integrations}{integrações de produto} com \textbf{Canva}, \textbf{Microsoft Office}, \textbf{Final Cut Pro} e \textbf{Adobe UXP} (Photoshop/InDesign), com React, TypeScript, Swift e SDKs das respetivas plataformas.}
+            \resumeItem{Melhorei a experiência em dispositivos móveis e a responsividade da interface da \textbf{aplicação web PageProof}.}
+
+        \resumeItemListEnd
+        
+
+    \resumeSubheading
+      {Analista de Investigação Operacional}{jan. 2022 -- set. 2022}
+      {CTT – Correios de Portugal, S.A.}{Lisboa, Portugal}
+        \resumeItemListStart
+            \resumeItem{Liderei um projeto de investigação operacional e análise de dados para otimizar a \textbf{distribuição na fase final} da rede postal.}
+            \resumeItem{Modelei e resolvi um \textbf{problema de rotas de veículos (VRP)} com restrições da distribuição postal e desenvolvi visualizações em \textbf{Tableau} para apoio ao planeamento operacional.}
+
+            \resumeItemListEnd
+  
+    \resumeSubheading
+      {Estagiário de Desenvolvimento Front-end}{abr. 2020 -- jul. 2020}
+      {Altitude Software}{Lisboa, Portugal}
+        \resumeItemListStart
+            \resumeItem{Reconstruí componentes \textbf{ASP.NET} antigos com \textbf{React}, modernizando a interface de uma plataforma de gestão de centros de contacto e melhorando a manutenibilidade.}
+        \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projetos}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+      {\textbf{\href{https://github.com/pprimor/igcp-aforro}{igcp-aforro}} $|$ \emph{biblioteca TypeScript \& CLI}}{Código aberto}
+      \resumeItemListStart
+        \resumeItem{Simulador determinístico com precisão decimal para Certificados do Tesouro \textbf{IGCP Aforro} (Séries B--F); entradas validadas com \textbf{Zod} e testes de referência face às taxas IGCP publicadas.}
+        \resumeItem{Publiquei um pacote \textbf{npm} com CLI, \texttt{rates.json} estático, API HTTP só de leitura e servidor MCP; a CI automatiza a atualização de dados Euribor/IGCP.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Educação}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {Universidade NOVA de Lisboa}{set. 2020 -- dez. 2022}
+    {Mestrado em Ciência da Computação}{Lisboa, Portugal}
+      \resumeItemListStart
+        \resumeItem{\textit{Disciplinas relevantes:} Inteligência Artificial, Concorrência e Paralelismo, Modelação de Dados, Recuperação de Informação, Aprendizagem Automática}
+      \resumeItemListEnd
+
+  \resumeSubheading
+    {Technische Universität Dresden}{abr. 2021 -- out. 2021}
+    {Mobilidade Erasmus+ em Ciência da Computação}{Dresden, Alemanha}
+
+  \resumeSubheading
+    {Universidade NOVA de Lisboa}{set. 2017 -- set. 2020}
+    {Licenciatura em Ciência da Computação}{Lisboa, Portugal}
+      \resumeItemListStart
+        \resumeItem{\textit{Disciplinas relevantes:} Algoritmos e Estruturas de Dados, Programação Orientada a Objetos, Bases de Dados, Sensores e Processamento de Imagem}
+      \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\end{document}
