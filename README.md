@@ -1,5 +1,7 @@
 # CV — GitHub Pages
 
+[![Build CV](https://github.com/pprimor/cv/actions/workflows/build-cv.yml/badge.svg)](https://github.com/pprimor/cv/actions/workflows/build-cv.yml)
+
 Static site that displays [Pedro Primor](https://pprimor.github.io/cv/)’s résumé as an embedded PDF.
 
 **Live site:** [https://pprimor.github.io/cv/](https://pprimor.github.io/cv/)
@@ -44,10 +46,15 @@ open CV.pdf      # macOS
 
 ## Update the CV
 
+| Path | What you do | What CI does |
+|------|-------------|--------------|
+| **Pull request** | Edit `cv_en.tex`, run `make cv`, commit **both** files | Fails if `CV.pdf` ≠ build output |
+| **Push to `main`** | May commit `cv_en.tex` only | Rebuilds and commits `CV.pdf` if needed |
+
 1. Edit `cv_en.tex`.
 2. Run `make cv` and spot-check `CV.pdf` (header icons and links).
-3. Commit `cv_en.tex` and `CV.pdf`.
-4. Push to `main`. After GitHub Pages rebuilds (usually 1–3 minutes), verify [https://pprimor.github.io/cv/](https://pprimor.github.io/cv/). Use a hard refresh if the PDF looks cached.
+3. Commit and push (see table above).
+4. After GitHub Pages rebuilds (usually 1–3 minutes), verify [https://pprimor.github.io/cv/](https://pprimor.github.io/cv/). Use a hard refresh if the PDF looks cached.
 
 Prefer a branch and pull request for non-trivial edits:
 
@@ -86,10 +93,13 @@ jekyll serve
 
 ## Deployment
 
-Pushes to `main` trigger a [GitHub Pages](https://docs.github.com/pages) build (Jekyll, legacy). No CI, database, or application server in this repo.
+Pushes to `main` trigger a [GitHub Pages](https://docs.github.com/pages) build (Jekyll, legacy). The [Build CV](https://github.com/pprimor/cv/actions/workflows/build-cv.yml) workflow keeps `CV.pdf` in sync with `cv_en.tex` on `main`; Pages serves the committed PDF plus `index.html`. No database or application server in this repo.
+
+If you add branch protection on `main`, allow `github-actions[bot]` to push (or exempt its `[skip ci]` commits) so auto-rebuilt PDFs can land after tex-only merges.
 
 ## Troubleshooting
 
+- **PR failed on PDF drift** — CI rebuilt `CV.pdf` and it did not match your branch. Run `make cv` locally, commit the updated `CV.pdf`, and push.
 - **PDF does not update on the site** — Wait for the Pages build, then hard-refresh or try a private window.
 - **Iframe blank in some browsers** — Open [CV.pdf](https://pprimor.github.io/cv/CV.pdf) directly; the embed uses a same-origin relative path, not Google Docs viewer.
 - **Wrong repo in links** — Remote and Pages URL use `pprimor/cv`; keep GitHub URLs in docs aligned with that.
