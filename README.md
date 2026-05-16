@@ -1,10 +1,10 @@
-# CV — GitHub Pages
+# CV — Cloudflare Pages
 
 [![Build CV](https://github.com/pprimor/cv/actions/workflows/build-cv.yml/badge.svg)](https://github.com/pprimor/cv/actions/workflows/build-cv.yml)
 
-Static site that displays [Pedro Primor](https://pprimor.github.io/cv/)’s résumé as an embedded PDF, with an **EN** / **PT** language switcher.
+Static site that displays [Pedro Primor](https://cv.primor.me/)’s résumé as an embedded PDF, with an **EN** / **PT** language switcher.
 
-**Live site:** [https://pprimor.github.io/cv/](https://pprimor.github.io/cv/)
+**Live site:** [https://cv.primor.me/](https://cv.primor.me/)
 
 ## Repository layout
 
@@ -16,8 +16,8 @@ Static site that displays [Pedro Primor](https://pprimor.github.io/cv/)’s rés
 | `CV_pt.pdf` | Built Portuguese résumé |
 | `index.html` | Landing page; EN/PT toggle embeds `CV.pdf` or `CV_pt.pdf` |
 | `cover_letter.pdf` | Optional asset (not linked from the homepage) |
-| `_config.yml` | Jekyll theme for GitHub Pages (`jekyll-theme-minimal`) |
-| `Makefile` | Build both PDFs from `cv_en.tex` and `cv_pt.tex` |
+| `scripts/build-site.sh` | Packages static assets into `dist/` for Cloudflare Pages |
+| `Makefile` | Build PDFs (`make cv`) and site bundle (`make site`) |
 
 ## Prerequisites (macOS + BasicTeX)
 
@@ -43,6 +43,7 @@ sudo /Library/TeX/texbin/tlmgr install latexmk \
 make cv          # both PDFs
 make cv-en       # cv_en.tex → CV.pdf only
 make cv-pt       # cv_pt.tex → CV_pt.pdf only
+make site        # dist/ for Cloudflare Pages (run after make cv if .tex changed)
 open CV.pdf      # macOS
 open CV_pt.pdf
 ```
@@ -59,7 +60,7 @@ open CV_pt.pdf
 1. Edit `cv_en.tex` and/or `cv_pt.tex` (keep structure in sync when both languages should match).
 2. Run `make cv` and spot-check both PDFs (header icons, links, one page each).
 3. Commit and push (see table above).
-4. After GitHub Pages rebuilds (usually 1–3 minutes), verify [https://pprimor.github.io/cv/](https://pprimor.github.io/cv/) and toggle EN/PT. Use a hard refresh if a PDF looks cached.
+4. After Cloudflare Pages redeploys (usually 1–2 minutes), verify [https://cv.primor.me/](https://cv.primor.me/) and toggle EN/PT. Use a hard refresh if a PDF looks cached.
 
 Prefer a branch and pull request for non-trivial edits:
 
@@ -81,27 +82,38 @@ open CV.pdf          # macOS
 open CV_pt.pdf
 ```
 
-**Homepage (iframe + language toggle)**
+**Homepage (iframe + language toggle, matches production layout)**
 
 ```bash
-python3 -m http.server 8080
-# http://localhost:8080/index.html
+make site
+python3 -m http.server 8080 --directory dist
+# http://localhost:8080/
 ```
 
-Run `make cv` before committing if you changed either `.tex` file so the embedded PDFs match the sources.
-
-**Jekyll (closer to GitHub Pages)**
-
-```bash
-gem install bundler jekyll
-jekyll serve
-```
+Run `make cv` before `make site` if you changed either `.tex` file so the embedded PDFs match the sources.
 
 ## Deployment
 
-Pushes to `main` trigger a [GitHub Pages](https://docs.github.com/pages) build (Jekyll, legacy). The [Build CV](https://github.com/pprimor/cv/actions/workflows/build-cv.yml) workflow keeps `CV.pdf` and `CV_pt.pdf` in sync with the LaTeX sources on `main`; Pages serves the committed PDFs plus `index.html`. No database or application server in this repo.
+Hosting is [Cloudflare Pages](https://developers.cloudflare.com/pages/) on **`cv.primor.me`**. Apex `primor.me` is not served by this project.
 
-`CV.pdf` remains the canonical English URL for bookmarks and external links. Portuguese is available at `CV_pt.pdf` and via the site toggle.
+### One-time Cloudflare setup
+
+1. In Cloudflare: **Workers & Pages** → **Create** → **Pages** → **Connect to Git** → `pprimor/cv`.
+2. Build settings (production branch `main`):
+
+   | Setting | Value |
+   |---------|--------|
+   | Framework preset | None |
+   | Build command | `bash scripts/build-site.sh` |
+   | Build output directory | `dist` |
+
+3. Deploy once and confirm the `*.pages.dev` preview serves `index.html` and both PDFs.
+4. **Custom domains** → add **`cv.primor.me`** (CNAME `cv` → your Pages hostname). Do not attach apex `primor.me` or `www` to this project.
+5. Disable [GitHub Pages](https://github.com/pprimor/cv/settings/pages) for this repo after cutover.
+
+Pushes to `main` trigger a Pages deploy. The [Build CV](https://github.com/pprimor/cv/actions/workflows/build-cv.yml) workflow keeps `CV.pdf` and `CV_pt.pdf` in sync with the LaTeX sources; Pages serves the packaged static files. No database or application server in this repo.
+
+`CV.pdf` remains the canonical English URL for bookmarks and external links (`https://cv.primor.me/CV.pdf`). Portuguese is available at `CV_pt.pdf` and via the site toggle.
 
 If you add branch protection on `main`, allow `github-actions[bot]` to push (or exempt its `[skip ci]` commits) so auto-rebuilt PDFs can land after tex-only merges.
 
@@ -109,8 +121,8 @@ If you add branch protection on `main`, allow `github-actions[bot]` to push (or 
 
 - **PR failed on PDF drift** — CI rebuilt one or both PDFs and they did not match your branch. Run `make cv` locally, commit the updated `CV.pdf` and/or `CV_pt.pdf`, and push.
 - **PR failed on page count** — Each PDF must be exactly one page. Trim content or spacing in the relevant `.tex` file, run `make cv`, and verify with `pdfinfo CV.pdf CV_pt.pdf | awk '/^Pages:/'`.
-- **PDF does not update on the site** — Wait for the Pages build, then hard-refresh or try a private window.
-- **Iframe blank in some browsers** — Open [CV.pdf](https://pprimor.github.io/cv/CV.pdf) or [CV_pt.pdf](https://pprimor.github.io/cv/CV_pt.pdf) directly; the embed uses same-origin relative paths, not Google Docs viewer.
-- **Wrong repo in links** — Remote and Pages URL use `pprimor/cv`; keep GitHub URLs in docs aligned with that.
+- **PDF does not update on the site** — Wait for the Pages deploy, then hard-refresh or try a private window.
+- **Iframe blank in some browsers** — Open [CV.pdf](https://cv.primor.me/CV.pdf) or [CV_pt.pdf](https://cv.primor.me/CV_pt.pdf) directly; the embed uses same-origin relative paths, not Google Docs viewer.
+- **Wrong repo in links** — Remote uses `pprimor/cv`; keep GitHub URLs in docs aligned with that.
 - **`tlmgr: command not found` under sudo** — Use `sudo /Library/TeX/texbin/tlmgr …` (sudo resets `PATH`).
 - **`latexmk` or `pdflatex` not found** — Run `eval "$(/usr/libexec/path_helper)"` or open a new terminal; install `latexmk` with `tlmgr` as above.

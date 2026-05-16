@@ -5,9 +5,12 @@ TEX_PT := cv_pt.tex
 PDF_EN := CV.pdf
 PDF_PT := CV_pt.pdf
 
-.PHONY: all cv cv-en cv-pt clean
+.PHONY: all cv cv-en cv-pt site clean
 
 all: cv
+
+site:
+	bash scripts/build-site.sh
 
 cv: cv-en cv-pt
 

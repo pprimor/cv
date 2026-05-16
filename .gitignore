@@ -10,3 +10,4 @@ CV_pt.out
 CV_pt.fls
 CV_pt.fdb_latexmk
 CV_pt.synctex.gz
+dist/

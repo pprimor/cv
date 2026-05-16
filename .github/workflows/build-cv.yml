@@ -53,6 +53,14 @@ jobs:
           test "$(pdfinfo CV.pdf | awk '/^Pages:/ {print $2}')" -eq 1
           test "$(pdfinfo CV_pt.pdf | awk '/^Pages:/ {print $2}')" -eq 1
 
+      - name: Verify site package
+        run: |
+          bash scripts/build-site.sh
+          test -f dist/index.html
+          test -f dist/CV.pdf
+          test -f dist/CV_pt.pdf
+          test -f dist/_headers
+
       - name: Verify committed PDFs match build
         if: github.event_name == 'pull_request'
         run: git diff --exit-code CV.pdf CV_pt.pdf
