@@ -37,12 +37,6 @@
       outline-offset: 2px;
     }
     iframe { flex: 1 1 auto; width: 100%; border: 0; display: block; min-height: 0; }
-    .fallback {
-      display: none;
-      padding: 2rem;
-      font-family: system-ui, sans-serif;
-      text-align: center;
-    }
   </style>
 </head>
 <body>
@@ -52,7 +46,7 @@
   </nav>
   <iframe id="cv-frame" src="CV.pdf" title="Pedro Primor — CV"></iframe>
   <noscript>
-    <p class="fallback" style="display: block;">
+    <p style="padding: 2rem; font-family: system-ui, sans-serif; text-align: center;">
       <a href="CV.pdf">CV (English)</a>
       &nbsp;|&nbsp;
       <a href="CV_pt.pdf">Currículo (Português)</a>
@@ -62,8 +56,8 @@
     (function () {
       var STORAGE_KEY = 'cv-lang';
       var LANG = {
-        en: { pdf: 'CV.pdf', htmlLang: 'en', title: 'Pedro Primor — CV', frameTitle: 'Pedro Primor — CV' },
-        pt: { pdf: 'CV_pt.pdf', htmlLang: 'pt', title: 'Pedro Primor — Currículo', frameTitle: 'Pedro Primor — Currículo' }
+        en: { pdf: 'CV.pdf', htmlLang: 'en', title: 'Pedro Primor — CV' },
+        pt: { pdf: 'CV_pt.pdf', htmlLang: 'pt', title: 'Pedro Primor — Currículo' }
       };
       var btnEn = document.getElementById('lang-en');
       var btnPt = document.getElementById('lang-pt');
@@ -71,22 +65,19 @@
 
       function setLang(code) {
         var cfg = LANG[code];
-        if (!cfg) return;
         document.documentElement.lang = cfg.htmlLang;
         document.title = cfg.title;
         frame.src = cfg.pdf;
-        frame.title = cfg.frameTitle;
+        frame.title = cfg.title;
         btnEn.setAttribute('aria-pressed', code === 'en' ? 'true' : 'false');
         btnPt.setAttribute('aria-pressed', code === 'pt' ? 'true' : 'false');
-        try { localStorage.setItem(STORAGE_KEY, code); } catch (e) {}
+        localStorage.setItem(STORAGE_KEY, code);
       }
 
       btnEn.addEventListener('click', function () { setLang('en'); });
       btnPt.addEventListener('click', function () { setLang('pt'); });
 
-      var saved;
-      try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-      if (saved === 'pt') setLang('pt');
+      if (localStorage.getItem(STORAGE_KEY) === 'pt') setLang('pt');
     })();
   </script>
 </body>

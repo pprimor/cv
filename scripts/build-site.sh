@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-cd "$ROOT"
+cd "$(dirname "$0")/.."
 
 rm -rf dist
 mkdir -p dist
