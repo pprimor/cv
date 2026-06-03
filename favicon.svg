@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .page { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .lines { fill: none; stroke-width: 1.75; stroke-linecap: round; }
+    @media (prefers-color-scheme: dark) {
+      .page, .lines { stroke: #f2f2f2; }
+    }
+    @media (prefers-color-scheme: light) {
+      .page, .lines { stroke: #1a1a1a; }
+    }
+  </style>
+  <path class="page" d="M9 5h11l5 5v17H9V5z"/>
+  <path class="page" d="M20 5v5h5"/>
+  <path class="lines" d="M12 14h10M12 18h10M12 22h7"/>
+</svg>
