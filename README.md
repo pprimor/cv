@@ -115,7 +115,7 @@ Pushes to `main` trigger a Pages deploy. The [Build CV](https://github.com/pprim
 
 `CV.pdf` remains the canonical English URL for bookmarks and external links (`https://cv.primor.me/CV.pdf`). Portuguese is available at `CV_pt.pdf` and via the site toggle.
 
-If you add branch protection on `main`, allow `github-actions[bot]` to push (or exempt its `[skip ci]` commits) so auto-rebuilt PDFs can land after tex-only merges.
+If you add branch protection on `main`, allow `github-actions[bot]` to push (or exempt its `[skip actions]` commits) so auto-rebuilt PDFs can land after tex-only merges.
 
 ## Troubleshooting
 

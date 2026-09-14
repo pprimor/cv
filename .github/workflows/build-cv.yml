@@ -69,5 +69,5 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "ci: rebuild CV.pdf and CV_pt.pdf [skip ci]"
+          commit_message: "ci: rebuild CV.pdf and CV_pt.pdf [skip actions]"
           file_pattern: CV.pdf CV_pt.pdf
