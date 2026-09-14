@@ -58,6 +58,7 @@ open CV_pt.pdf
 | **Push to `main`** | May commit `.tex` only | Rebuilds and commits `CV.pdf` and `CV_pt.pdf` if needed |
 
 1. Edit `cv_en.tex` and/or `cv_pt.tex` (keep structure in sync when both languages should match).
+   Prose follows [`docs/writing-style.md`](docs/writing-style.md); read it before rewording a bullet.
 2. Run `make cv` and spot-check both PDFs (header icons, links, one page each).
 3. Commit and push (see table above).
 4. After Cloudflare Pages redeploys (usually 1–2 minutes), verify [https://cv.primor.me/](https://cv.primor.me/) and toggle EN/PT. Use a hard refresh if a PDF looks cached.
