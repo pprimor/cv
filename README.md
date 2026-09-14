@@ -121,7 +121,7 @@ If you add branch protection on `main`, allow `github-actions[bot]` to push (or 
 
 - **PR failed on PDF drift** — CI rebuilt one or both PDFs and they did not match your branch. Run `make cv` locally, commit the updated `CV.pdf` and/or `CV_pt.pdf`, and push.
 - **PR failed on page count** — Each PDF must be exactly one page. Trim content or spacing in the relevant `.tex` file, run `make cv`, and verify with `pdfinfo CV.pdf CV_pt.pdf | awk '/^Pages:/'`.
-- **PDF does not update on the site** — Wait for the Pages deploy, then hard-refresh or try a private window.
+- **PDF does not update on the site** — Wait for the Pages deploy, then hard-refresh or try a private window. Cloudflare Pages skips any commit whose message contains `[skip ci]`, so never put that token in a commit body; the workflow uses `[skip actions]` for its PDF commits.
 - **Iframe blank in some browsers** — Open [CV.pdf](https://cv.primor.me/CV.pdf) or [CV_pt.pdf](https://cv.primor.me/CV_pt.pdf) directly; the embed uses same-origin relative paths, not Google Docs viewer.
 - **Wrong repo in links** — Remote uses `pprimor/cv`; keep GitHub URLs in docs aligned with that.
 - **`tlmgr: command not found` under sudo** — Use `sudo /Library/TeX/texbin/tlmgr …` (sudo resets `PATH`).
