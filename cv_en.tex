@@ -5,7 +5,7 @@
 % License : MIT
 %------------------------
 
-\documentclass[letterpaper,11pt]{article}
+\documentclass[a4paper,11pt]{article}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
 \usepackage[usenames,dvipsnames]{color}
@@ -103,7 +103,17 @@
 \section{About me}
     \justifying
 
-Software engineer specializing in cross-platform creative-tool integrations, with deep experience shipping production-grade Electron apps and platform SDK work across web, desktop, and native. At \href{https://pageproof.com/}{PageProof}, I am a core member of a small remote product team and primary owner of integrations connecting Canva, Microsoft Office, Adobe Creative Suite, and Final Cut Pro to PageProof's review workflow, plus the cross-platform Electron desktop app. \textbf{Languages:} Portuguese (native); English (full professional proficiency).
+Software engineer on \href{https://pageproof.com/}{PageProof}'s small remote product team, taking features from design to production across web, desktop, and native hosts. I own the integrations platform: plugins for Canva, Microsoft Office, Adobe Creative Cloud, Final Cut Pro, and Jira, the OAuth 2.0 / OpenID Connect authorization server behind them, and the cross-platform Electron desktop app. I work in TypeScript, React, and Node.js daily and reach for Swift or C++ when the host platform demands it. \textbf{Languages:} Portuguese (native); English (full professional proficiency).
+
+%-----------SKILLS-----------
+\section{Skills}
+  \resumeSubHeadingListStart
+    \item\small{
+      \textbf{Languages:} TypeScript, JavaScript, Node.js, Swift, C++ \\
+      \textbf{Frameworks \& platforms:} React, Electron, Vite, Adobe UXP, Canva Apps SDK, Office.js, Atlassian Forge \\
+      \textbf{Infrastructure:} OAuth 2.0 / OIDC, Kubernetes, Azure, Cloudflare Workers, Redis, GitHub Actions
+    }\vspace{-5pt}
+  \resumeSubHeadingListEnd
 
 %-----------EXPERIENCE-----------
 \section{Work experience}
@@ -113,22 +123,20 @@ Software engineer specializing in cross-platform creative-tool integrations, wit
       {Software Engineer}{Mar. 2023 -- Present}
       {PageProof.com Limited}{Remote}
         \resumeItemListStart
-            \resumeItem{Built and shipped \href{https://pageproof.com/integrations}{production integrations} for \textbf{Canva}, \textbf{Microsoft Office}, \textbf{Final Cut Pro}, and \textbf{QuarkXPress} as primary engineer; co-developed \textbf{Adobe UXP} (Photoshop/InDesign) integrations using React, TypeScript, Swift, C++, and platform SDKs.}
-            \resumeItem{Building the \textbf{Jira} integration (proof references, synced issue comments, approved-file attachments) with React, TypeScript, and Node.js.}
-            \resumeItem{Designed and built PageProof's company-wide \textbf{OAuth 2.0} (\href{https://www.rfc-editor.org/rfc/rfc6749.html}{RFC 6749}) Authorization Server with \textbf{OpenID Connect (OIDC)} (\href{https://openid.net/connect/}{OpenID Connect}) support (\textbf{Node.js}) and cross-platform \textbf{Electron} desktop app as primary engineer.}
-
+            \resumeItem{Built and shipped \href{https://pageproof.com/integrations}{production integrations} for \textbf{Canva}, \textbf{Microsoft Office}, \textbf{Final Cut Pro}, and \textbf{QuarkXPress} as primary engineer; co-developed \textbf{Adobe UXP} plugins for Photoshop and InDesign and built the \textbf{Premiere Pro} review panel (timecode-ordered comments, playhead navigation, sequence export to proof) using React, TypeScript, Swift, C++, and platform SDKs.}
+            \resumeItem{Shipped the \textbf{Jira} integration: proof-to-issue references, synced status comments and remote links, and approved-file attachment sync on a Node.js service with Redis-locked event orchestration; the \textbf{Atlassian Forge} app (issue panel, create proof from attachment) is in final testing.}
+            \resumeItem{Designed and built the company-wide \textbf{OAuth 2.0} (\href{https://www.rfc-editor.org/rfc/rfc6749.html}{RFC 6749}) authorization server with \textbf{OpenID Connect} support (Node.js) that authenticates every plugin and the desktop app; now migrating it from Azure App Service to \textbf{Kubernetes}.}
+            \resumeItem{Primary engineer on the cross-platform \textbf{Electron} desktop app; extracted a shared comments-panel package reused across the Adobe host apps and moved the Adobe plugin build to Bolt UXP (Vite).}
+            \resumeItem{Extended the Office add-in with AI-assisted pre-proof checks (PowerPoint slide images, Word/Excel PDFs with grounded positions) and scoped intelligence agents per host app; building final-file delivery to \textbf{Google Drive}, \textbf{Dropbox}, and \textbf{OneDrive}.}
         \resumeItemListEnd
-        
 
     \resumeSubheading
       {Operations Research Analyst}{Jan. 2022 -- Sep. 2022}
       {CTT – Correios de Portugal, S.A.}{Lisbon, Portugal}
         \resumeItemListStart
-            \resumeItem{Applied operations research and data modeling to postal logistics; this work reinforced my move into software engineering focused on complex systems and user-facing products.}
-            \resumeItem{Led an operations research and data analytics project optimizing \textbf{last-mile delivery} within the postal distribution network.}
-            \resumeItem{Modeled and solved a \textbf{vehicle routing problem (VRP)} for postal delivery constraints and developed \textbf{Tableau} visualizations to support operational planning.}
-
-            \resumeItemListEnd
+            \resumeItem{Led an operations research and data analytics project optimizing \textbf{last-mile delivery} across the postal distribution network.}
+            \resumeItem{Modeled and solved a \textbf{vehicle routing problem (VRP)} under postal delivery constraints and built \textbf{Tableau} dashboards for operational planning.}
+        \resumeItemListEnd
 
   \resumeSubHeadingListEnd
 
@@ -153,7 +161,7 @@ Software engineer specializing in cross-platform creative-tool integrations, wit
     {NOVA University Lisbon}{Sep. 2020 -- Dec. 2022}
     {Master of Science in Computer Science}{Lisbon, Portugal}
       \resumeItemListStart
-        \resumeItem{\textit{Relevant coursework:} Artificial Intelligence, Concurrency and Parallelism, Data Modelling, Information Retrieval, Machine Learning}
+        \resumeItem{\textit{Coursework:} Artificial Intelligence, Concurrency and Parallelism, Information Retrieval, Machine Learning}
       \resumeItemListEnd
 
   \resumeSubheading
@@ -163,9 +171,6 @@ Software engineer specializing in cross-platform creative-tool integrations, wit
   \resumeSubheading
     {NOVA University Lisbon}{Sep. 2017 -- Sep. 2020}
     {Bachelor of Science in Computer Science}{Lisbon, Portugal}
-      \resumeItemListStart
-        \resumeItem{\textit{Relevant coursework:} Algorithms and Data Structures, Object-Oriented Programming, Databases, Sensors and Image Processing}
-      \resumeItemListEnd
 
 \resumeSubHeadingListEnd
 
