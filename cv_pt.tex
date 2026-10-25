@@ -103,7 +103,7 @@
 \section{Sobre mim}
     \justifying
 
-Sou engenheiro de software na \href{https://pageproof.com/}{PageProof}, uma pequena equipa remota que faz revisão e aprovação de conteúdos online para equipas de marketing e criativas. A minha parte é a plataforma de integrações: os plugins que permitem rever provas dentro do Canva, Microsoft Office, Adobe Creative Cloud, Final Cut Pro e Jira, o servidor OAuth 2.0 / OpenID Connect que os autentica e a aplicação Electron para computador. Quase tudo é TypeScript, React e Node.js; Swift e C++ entram quando a aplicação anfitriã não deixa outra opção. \textbf{Idiomas:} português (nativo) e inglês (fluente).
+Sou engenheiro de software na \href{https://pageproof.com/}{PageProof}, uma pequena equipa remota que faz revisão e aprovação de conteúdos online para equipas de marketing e criativas. A minha parte é a plataforma de integrações: os plugins que permitem rever provas dentro do Canva, Microsoft Office, Adobe Creative Cloud, Final Cut Pro e Jira, o servidor OAuth 2.0 / OpenID Connect e a aplicação Electron para computador. Quase tudo é TypeScript, React e Node.js; Swift e C++ entram quando a aplicação anfitriã não deixa outra opção. \textbf{Idiomas:} português (nativo) e inglês (fluente).
 
 %-----------SKILLS-----------
 \section{Competências}
@@ -121,15 +121,14 @@ Sou engenheiro de software na \href{https://pageproof.com/}{PageProof}, uma pequ
   \resumeSubHeadingListStart
 
     \resumeSubheading
-      {Engenheiro de Software}{mar. 2023 -- atual}
+      {Engenheiro de Software, Plataforma de integrações}{mar. 2023 -- atual}
       {PageProof.com Limited}{Remoto}
         \resumeItemListStart
-            \resumeItem{Quem revê trabalha dentro das ferramentas de desenho e edição, por isso as \href{https://pageproof.com/integrations}{integrações} levam a revisão até lá. Construí os plugins para Canva, Microsoft Office, Final Cut Pro e QuarkXPress, co-desenvolvi os plugins Adobe UXP e fiz o painel do Premiere Pro, que ordena os comentários por \emph{timecode} para o editor saltar para cada um.}
-            \resumeItem{A integração com o Jira liga uma prova à sua \emph{issue} e mantém as duas a par: comentários de estado, ligações remotas e o ficheiro aprovado sincronizam automaticamente, num serviço Node.js com \emph{locks} em Redis para manter os eventos em ordem. A aplicação Atlassian Forge já está disponível no Atlassian Marketplace.}
-            \resumeItem{Os ficheiros aprovados são entregues onde cada equipa os guarda: construí os fornecedores para OneDrive, SharePoint, Canto e Bynder, com credenciais cifradas por equipa. Dropbox e Google Drive estão em curso.}
-            \resumeItem{Todos os plugins e a aplicação para computador precisam de saber quem é o utilizador, por isso concebi um único servidor de autorização OAuth 2.0 (\href{https://www.rfc-editor.org/rfc/rfc6749.html}{RFC 6749}) com OpenID Connect, em Node.js, que todos partilham. Está agora a migrar para Kubernetes.}
-            \resumeItem{Sou o principal engenheiro da aplicação Electron para computador. O seu painel de comentários foi extraído para um pacote partilhado com os plugins Adobe, para que uma correcção chegue a todas as aplicações de uma vez.}
-            \resumeItem{O suplemento do Office faz verificações com IA antes de criar a prova; construí a interface dos resultados.}
+            \resumeItem{As integrações usam a conta PageProof do utilizador, por isso é a PageProof que emite os \emph{tokens}. Concebi um só servidor OAuth 2.0 (\href{https://www.rfc-editor.org/rfc/rfc6749.html}{RFC 6749}) com OpenID Connect, pelo qual nove delas se autenticam, dos plugins Adobe e Office ao Figma, ao Teams e ao servidor MCP que o Claude e o ChatGPT usam. Está a migrar para Kubernetes.}
+            \resumeItem{Construí as \href{https://pageproof.com/integrations}{integrações} que levam a revisão às ferramentas onde quem revê já trabalha: os plugins para Canva, Microsoft Office, Final Cut Pro e QuarkXPress e o painel do Premiere Pro, e co-desenvolvi os plugins Adobe UXP. Os outros seguem a base que introduzi: Bolt UXP em todos os plugins Adobe e React Query.}
+            \resumeItem{Sou o principal engenheiro da aplicação Electron para computador. Extraí o seu painel de comentários para um pacote partilhado com os plugins Adobe, para que uma correcção chegue a todas as aplicações de uma vez.}
+            \resumeItem{Construí a integração com o Jira, que liga uma prova à sua \emph{issue} e mantém as duas a par: comentários de estado, ligações remotas e o ficheiro aprovado sincronizam automaticamente, num serviço Node.js com \emph{locks} em Redis para manter os eventos em ordem. Levei a aplicação Forge pela revisão da Atlassian até ao Marketplace.}
+            \resumeItem{Construí os fornecedores que entregam os ficheiros aprovados onde cada equipa os guarda: OneDrive, SharePoint, Canto e Bynder, com credenciais cifradas por equipa. Dropbox e Google Drive estão em curso.}
         \resumeItemListEnd
 
     \resumeSubheading

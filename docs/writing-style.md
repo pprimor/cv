@@ -25,15 +25,21 @@ drops that habit to stay short; everything else carries over.
 1. Full sentences with a subject. First person singular where the CV already implies it
    ("I built…"); the thing itself as subject otherwise ("The Jira integration links a proof to its issue…").
 2. Every bullet says **what** was built or what it does, plus **one** reason or consequence.
-   No bullet is a list of features alone.
+   No bullet is a list of features alone. Lead with the action ("I built…", "I designed…") where
+   the bullet has one; the reason follows in the same bullet.
 3. Say what a product or plugin is for before naming the technology. Technology names appear
    once, at the end, and are not bolded.
-4. Plain verbs: built, created, designed, made, moved, proposed.
-   Avoid: shipped, own, primary engineer, leverage, spearhead, drive.
+4. Plain verbs: built, created, designed, extracted, introduced, made, moved, proposed; "led" only
+   when it is literally true. Avoid: shipped, own, primary engineer, leverage, spearhead, drive.
+   The senior CVs that read best (Eric Fritz, Daniel Liu) use plain verbs and let the scope speak.
 5. Unfinished work is stated as unfinished in the same breath: "is in final testing", "is in progress".
 6. At most one "For example" in the whole document. No "Firstly / Secondly / Finally", no "Moreover".
 7. Oxford spelling in English. European Portuguese in `cv_pt.tex`, transposed into the same voice
    rather than translated word for word.
-8. No bold keywords in prose. Hyperlinks stay. The Skills section stays a list; it is data, not prose.
-9. Both PDFs must stay at one A4 page (CI enforces it). If a rewrite overflows, trim the last
+8. Prefer evidence that something is used (who or what depends on it, how many) over a feature
+   list. Counts must be real and checkable from code or config, such as the clients in the auth
+   server's `config/clients.json`. Never request totals or guessed user numbers.
+9. The role header names the area of scope ("Software Engineer, Integrations platform").
+10. No bold keywords in prose. Hyperlinks stay. The Skills section stays a list; it is data, not prose.
+11. Both PDFs must stay at one A4 page (CI enforces it). If a rewrite overflows, trim the last
    PageProof bullet first, then the project's second bullet. Never shrink fonts or margins.
