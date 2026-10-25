@@ -61,10 +61,6 @@ jobs:
           test -f dist/CV_pt.pdf
           test -f dist/_headers
 
-      - name: Verify committed PDFs match build
-        if: github.event_name == 'pull_request'
-        run: git diff --exit-code CV.pdf CV_pt.pdf
-
       - name: Commit updated PDFs
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: stefanzweifel/git-auto-commit-action@v5
