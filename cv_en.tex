@@ -124,8 +124,9 @@ I am a software engineer at \href{https://pageproof.com/}{PageProof}, a small re
       {Software Engineer}{Mar. 2023 -- Present}
       {PageProof.com Limited}{Remote}
         \resumeItemListStart
-            \resumeItem{Reviewers work inside design and editing tools, so the \href{https://pageproof.com/integrations}{integrations} bring the review to them. I built the plugins for Canva, Microsoft Office, Final Cut Pro and QuarkXPress, the Canto and Bynder DAM integrations, co-developed the Adobe UXP plugins, and built the Premiere Pro panel, which orders comments by timecode so the editor can jump straight to each one.}
+            \resumeItem{Reviewers work inside design and editing tools, so the \href{https://pageproof.com/integrations}{integrations} bring the review to them. I built the plugins for Canva, Microsoft Office, Final Cut Pro and QuarkXPress, co-developed the Adobe UXP plugins, and built the Premiere Pro panel, which orders comments by timecode so the editor can jump straight to each one.}
             \resumeItem{The Jira integration links a proof to its issue and keeps the two in step: status comments, remote links and the approved file sync automatically, on a Node.js service with Redis locks to keep events in order. The Atlassian Forge app is live on the Atlassian Marketplace.}
+            \resumeItem{Approved files are delivered to where each team keeps them: I built the providers for OneDrive, SharePoint, Canto and Bynder, with credentials encrypted per team. Dropbox and Google Drive are in progress.}
             \resumeItem{Every plugin and the desktop app need to know who the user is, so I designed one OAuth 2.0 (\href{https://www.rfc-editor.org/rfc/rfc6749.html}{RFC 6749}) authorization server with OpenID Connect, in Node.js, that all of them share. It is now moving to Kubernetes.}
             \resumeItem{I am the main engineer on the Electron desktop app. Its comments panel was extracted into one package shared with the Adobe plugins, so a fix lands in every host at once.}
             \resumeItem{The Office add-in runs AI-assisted checks before a file becomes a proof; I built the interface for their results.}
