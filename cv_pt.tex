@@ -111,7 +111,8 @@ Sou engenheiro de software na \href{https://pageproof.com/}{PageProof}, uma pequ
     \item\small{
       \textbf{Linguagens:} TypeScript, JavaScript, Node.js, Swift, C++ \\
       \textbf{Frameworks e plataformas:} React, Electron, Vite, Adobe UXP, Canva Apps SDK, Office.js, Atlassian Forge \\
-      \textbf{Infraestrutura:} OAuth 2.0 / OIDC, Kubernetes, Azure, Cloudflare Workers, Redis, GitHub Actions
+      \textbf{Infraestrutura:} OAuth 2.0 / OIDC, Kubernetes, Azure, Cloudflare Workers, Redis, GitHub Actions \\
+      \textbf{IA:} servidores MCP, programação com agentes (Claude Code)
     }\vspace{-5pt}
   \resumeSubHeadingListEnd
 
@@ -127,7 +128,7 @@ Sou engenheiro de software na \href{https://pageproof.com/}{PageProof}, uma pequ
             \resumeItem{A integração com o Jira liga uma prova à sua \emph{issue} e mantém as duas a par: comentários de estado, ligações remotas e o ficheiro aprovado sincronizam automaticamente, num serviço Node.js com \emph{locks} em Redis para manter os eventos em ordem. A aplicação Atlassian Forge já está disponível no Atlassian Marketplace.}
             \resumeItem{Todos os plugins e a aplicação para computador precisam de saber quem é o utilizador, por isso concebi um único servidor de autorização OAuth 2.0 (\href{https://www.rfc-editor.org/rfc/rfc6749.html}{RFC 6749}) com OpenID Connect, em Node.js, que todos partilham. Está agora a migrar para Kubernetes.}
             \resumeItem{Sou o principal engenheiro da aplicação Electron para computador. O seu painel de comentários foi extraído para um pacote partilhado com os plugins Adobe, para que uma correcção chegue a todas as aplicações de uma vez.}
-            \resumeItem{O suplemento do Office faz agora verificações assistidas por IA antes de um ficheiro se tornar prova: imagens dos diapositivos no PowerPoint, PDFs posicionados no Word e Excel. A entrega de ficheiros aprovados para Google Drive, Dropbox e OneDrive está em curso.}
+            \resumeItem{O suplemento do Office faz agora verificações assistidas por IA antes de um ficheiro se tornar prova: imagens dos diapositivos no PowerPoint, PDFs posicionados no Word e Excel. Construí a interface que mostra os resultados; as verificações correm num serviço à parte.}
         \resumeItemListEnd
 
     \resumeSubheading
@@ -147,8 +148,15 @@ Sou engenheiro de software na \href{https://pageproof.com/}{PageProof}, uma pequ
     \resumeProjectHeading
       {\textbf{\href{https://github.com/pprimor/igcp-aforro}{igcp-aforro}} $|$ \emph{biblioteca TypeScript \& CLI}}{}
       \resumeItemListStart
-        \resumeItem{Um simulador de Certificados de Aforro (IGCP, Séries B a F): aritmética decimal exacta, entradas validadas com Zod e testes de referência contra as taxas que o IGCP publica.}
-        \resumeItem{Publicado no npm com CLI, um \texttt{rates.json} estático, uma API HTTP só de leitura e um servidor MCP; a CI actualiza os dados Euribor e IGCP.}
+        \resumeItem{Um simulador de Certificados de Aforro (IGCP, Séries A a F), construído a partir das fórmulas da lei: aritmética decimal exacta e testes de referência contra as taxas que o IGCP publica.}
+        \resumeItem{Publicado no \href{https://www.npmjs.com/package/igcp-aforro}{npm} com CLI, \href{https://igcp-aforro.primor.me/}{documentação}, uma API HTTP só de leitura e um servidor MCP, para que um modelo de linguagem cite uma simulação em vez de a estimar.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{pnl} $|$ \emph{contabilidade pessoal em partidas dobradas, privada, TypeScript \& Electron}}{}
+      \resumeItemListStart
+        \resumeItem{Um registo das minhas contas que lê extractos de mais de uma dúzia de bancos, corretoras e exchanges, ou os obtém por open banking, e avalia cada activo ao último preço de fecho.}
+        \resumeItem{Construí-o com agentes de programação, por isso nada do que escrevem é aceite sem verificação: cada importação é confrontada com o saldo do extracto ou o valor do próprio banco, e mais de 3000 testes fixam cada relatório ao cêntimo.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
