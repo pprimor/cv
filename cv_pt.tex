@@ -128,14 +128,14 @@ Sou engenheiro de software na \href{https://pageproof.com/}{PageProof}, uma pequ
             \resumeItem{A integração com o Jira liga uma prova à sua \emph{issue} e mantém as duas a par: comentários de estado, ligações remotas e o ficheiro aprovado sincronizam automaticamente, num serviço Node.js com \emph{locks} em Redis para manter os eventos em ordem. A aplicação Atlassian Forge já está disponível no Atlassian Marketplace.}
             \resumeItem{Todos os plugins e a aplicação para computador precisam de saber quem é o utilizador, por isso concebi um único servidor de autorização OAuth 2.0 (\href{https://www.rfc-editor.org/rfc/rfc6749.html}{RFC 6749}) com OpenID Connect, em Node.js, que todos partilham. Está agora a migrar para Kubernetes.}
             \resumeItem{Sou o principal engenheiro da aplicação Electron para computador. O seu painel de comentários foi extraído para um pacote partilhado com os plugins Adobe, para que uma correcção chegue a todas as aplicações de uma vez.}
-            \resumeItem{O suplemento do Office faz agora verificações assistidas por IA antes de um ficheiro se tornar prova: imagens dos diapositivos no PowerPoint, PDFs posicionados no Word e Excel. Construí a interface que mostra os resultados; as verificações correm num serviço à parte.}
+            \resumeItem{O suplemento do Office faz verificações com IA antes de criar a prova; construí a interface dos resultados.}
         \resumeItemListEnd
 
     \resumeSubheading
       {Analista de Investigação Operacional}{jan. 2022 -- set. 2022}
       {CTT – Correios de Portugal, S.A.}{Lisboa, Portugal}
         \resumeItemListStart
-            \resumeItem{Trabalhei na última etapa da distribuição do correio, em que o carteiro sai do centro de distribuição e visita cada código postal do seu giro. O objectivo era um modelo de rotas que os CTT pudessem aplicar a qualquer centro do país.}
+            \resumeItem{Trabalhei na última etapa da distribuição do correio, em que o carteiro sai do centro de distribuição e visita cada código postal do seu giro. O objectivo era um modelo de rotas aplicável a qualquer centro do país.}
             \resumeItem{Modelei-o como um problema de rotas de veículos com as restrições dos CTT e agrupei códigos postais em segmentos para as rotas se manterem estáveis de um dia para o outro, com \emph{dashboards} em Tableau para o planeamento. Este trabalho deu origem à minha tese de mestrado.}
         \resumeItemListEnd
 
@@ -148,15 +148,13 @@ Sou engenheiro de software na \href{https://pageproof.com/}{PageProof}, uma pequ
     \resumeProjectHeading
       {\textbf{\href{https://github.com/pprimor/igcp-aforro}{igcp-aforro}} $|$ \emph{biblioteca TypeScript \& CLI}}{}
       \resumeItemListStart
-        \resumeItem{Um simulador de Certificados de Aforro (IGCP, Séries A a F), construído a partir das fórmulas da lei: aritmética decimal exacta e testes de referência contra as taxas que o IGCP publica.}
-        \resumeItem{Publicado no \href{https://www.npmjs.com/package/igcp-aforro}{npm} com CLI, \href{https://igcp-aforro.primor.me/}{documentação}, uma API HTTP só de leitura e um servidor MCP, para que um modelo de linguagem cite uma simulação em vez de a estimar.}
+        \resumeItem{Um simulador de Certificados de Aforro (Séries A a F), feito a partir das fórmulas da lei e publicado no \href{https://www.npmjs.com/package/igcp-aforro}{npm} com CLI, \href{https://igcp-aforro.primor.me/}{documentação}, API HTTP e servidor MCP, para que uma IA cite uma simulação em vez de a estimar.}
       \resumeItemListEnd
 
     \resumeProjectHeading
       {\textbf{pnl} $|$ \emph{contabilidade pessoal em partidas dobradas, privada, TypeScript \& Electron}}{}
       \resumeItemListStart
-        \resumeItem{Um registo das minhas contas que lê extractos de mais de uma dúzia de bancos, corretoras e exchanges, ou os obtém por open banking, e avalia cada activo ao último preço de fecho.}
-        \resumeItem{Construí-o com agentes de programação, por isso nada do que escrevem é aceite sem verificação: cada importação é confrontada com o saldo do extracto ou o valor do próprio banco, e mais de 3000 testes fixam cada relatório ao cêntimo.}
+        \resumeItem{Um registo das minhas contas que lê extractos de mais de uma dúzia de bancos, corretoras e exchanges. Construí-o com agentes de programação, por isso nada do que escrevem é aceite sem verificação: cada importação é confrontada com o saldo do próprio banco, e mais de 3000 testes fixam cada relatório ao cêntimo.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
